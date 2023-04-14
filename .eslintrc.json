@@ -1,50 +1,94 @@
 {
-  "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
-        "createDefaultProgram": true
-      },
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {}
-    }
-  ]
+    "root": true,
+    "ignorePatterns": ["projects/**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "parserOptions": {
+                "project": ["tsconfig.json"],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:prettier/recommended",
+                "eslint:recommended",
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "plugin:@angular-eslint/ng-cli-compat",
+                "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "plugins": [
+                "prettier",
+                "@angular-eslint",
+                "@typescript-eslint"
+            ],
+            "rules": {
+                "@angular-eslint/component-class-suffix": [
+                    "error",
+                    {
+                        "suffixes": ["Page", "Component"]
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "@typescript-eslint/no-empty-function": "off",
+                "@angular-eslint/no-empty-lifecycle-method": "off",
+                // Turning off this to support ngxs memorized selectors
+                "@typescript-eslint/unbound-method": "off",
+                "@typescript-eslint/no-floating-promises": "off",
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    {
+                        "selector": [
+                            "classProperty",
+                            "enumMember"
+                        ],
+                        "format": null
+                    }
+                ],
+                "@typescript-eslint/no-unused-vars": [
+                    "error",
+                    {
+                        "argsIgnorePattern": "^_"
+                    }
+                ],
+                "prettier/prettier": "error"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "plugins": [
+                "prettier",
+                "@angular-eslint"
+            ],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended",
+                "plugin:prettier/recommended"
+            ],
+            "rules": {
+                "prettier/prettier": [
+                    "error",
+                    {
+                        "parser": "angular"
+                    }
+                ]
+            }
+        }
+    ]
 }
