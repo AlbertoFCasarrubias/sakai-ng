@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import * as i18nIsoCountries from 'i18n-iso-countries';
-import { Dropdown } from '../../../../models/common';
 import { SelectItem } from 'primeng/api';
 
 @Component({
