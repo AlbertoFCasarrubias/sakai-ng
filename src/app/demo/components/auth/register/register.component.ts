@@ -19,8 +19,6 @@ import { SelectItem } from 'primeng/api';
   ],
 })
 export class RegisterComponent {
-  valCheck: string[] = ['remember'];
-
   password!: string;
 
   countries: SelectItem[] = [];
